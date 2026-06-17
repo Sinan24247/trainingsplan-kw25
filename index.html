@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainingsplan – KW 25</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      background: #0f0f0f; color: #f0f0f0; min-height: 100vh; padding: 32px 20px;
+    }
+    header { text-align: center; margin-bottom: 40px; }
+    header h1 { font-size: 2rem; font-weight: 700; color: #fff; }
+    header p { color: #888; margin-top: 6px; font-size: 0.95rem; }
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; max-width: 1100px; margin: 0 auto 48px;
+    }
+    .day-card {
+      background: #1a1a1a; border-radius: 16px; padding: 20px;
+      border: 1px solid #2a2a2a; position: relative; overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .day-card:hover { transform: translateY(-3px); border-color: #444; }
+    .day-card.today { border-color: #fc4c02; box-shadow: 0 0 0 1px #fc4c0240; }
+    .day-card.today::before {
+      content: 'HEUTE'; position: absolute; top: 14px; right: 14px;
+      background: #fc4c02; color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 20px; letter-spacing: 0.5px;
+    }
+    .day-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; color: #666; margin-bottom: 6px; }
+    .day-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 14px;
+    }
+    .tag-run   { background: #1a3a2a; color: #4ade80; }
+    .tag-gym   { background: #1a2a3a; color: #60a5fa; }
+    .tag-hyrox { background: #2a1a3a; color: #c084fc; }
+    .detail-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .detail-list li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.875rem; color: #ccc; line-height: 1.4;
+    }
+    .detail-list li::before { content: '→'; color: #555; flex-shrink: 0; margin-top: 1px; }
+    .highlight { color: #fc4c02; font-weight: 600; }
+    .priority-section {
+      max-width: 1100px; margin: 0 auto 48px; background: #1a1a1a;
+      border-radius: 16px; padding: 24px; border: 1px solid #2a2a2a;
+    }
+    .priority-section h2 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .priority-list { display: flex; flex-direction: column; gap: 10px; }
+    .priority-item { display: flex; align-items: center; gap: 12px; font-size: 0.875rem; }
+    .prio-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .prio-green  { background: #4ade80; }
+    .prio-yellow { background: #facc15; }
+    .prio-orange { background: #fb923c; }
+    .prio-red    { background: #f87171; }
+    .prio-label { color: #aaa; }
+    .brust-box {
+      max-width: 1100px; margin: 0 auto 48px; background: #1f1510;
+      border: 1px solid #fc4c0250; border-radius: 16px; padding: 20px 24px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .brust-box .icon { font-size: 1.4rem; flex-shrink: 0; }
+    .brust-box h3 { font-size: 0.9rem; font-weight: 700; color: #fc4c02; margin-bottom: 6px; }
+    .brust-box p { font-size: 0.85rem; color: #bbb; line-height: 1.5; }
+    footer { text-align: center; color: #444; font-size: 0.8rem; max-width: 1100px; margin: 0 auto; }
+    footer span { color: #fc4c02; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Trainingsplan</h1>
+  <p>KW 25 · 16.–22. Juni 2026</p>
+</header>
+
+<div class="week-grid">
+
+  <div class="day-card">
+    <div class="day-label">Montag · 16. Juni</div>
+    <div class="day-title">Pull + Core</div>
+    <span class="tag tag-gym">🏋️ Gym</span>
+    <ul class="detail-list">
+      <li>Jefferson Curls – 4×6 kontrolliert</li>
+      <li>Weighted Pull-ups / Lat Pulldown</li>
+      <li>Barbell / DB Rows</li>
+      <li>Rear Delt Flyes, Face Pulls</li>
+      <li>Abschluss: <span class="highlight">2× Plank 60s</span></li>
+      <li>Calisthenics-Aufwärmen: Handstand-Übungen</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-label">Dienstag · 17. Juni</div>
+    <div class="day-title">Push (Vorsichtig)</div>
+    <span class="tag tag-gym">🏋️ Gym</span>
+    <ul class="detail-list">
+      <li>Calisthenics-Aufwärmen: Shoulder CARs</li>
+      <li>Overhead Press – Hauptübung</li>
+      <li>Trizeps: Close-Grip, Skull Crushers</li>
+      <li>Brust: <span class="highlight">~50–60% Last</span>, nur Press</li>
+      <li>Lateral Raises</li>
+    </ul>
+  </div>
+
+  <div class="day-card today">
+    <div class="day-label">Mittwoch · 18. Juni</div>
+    <div class="day-title">Tempo Run</div>
+    <span class="tag tag-run">🏃 Laufen</span>
+    <ul class="detail-list">
+      <li>1,5 km Aufwärmen locker</li>
+      <li><span class="highlight">3×1000m ~5:00/km</span></li>
+      <li>90s Pause zwischen Intervallen</li>
+      <li>1 km Auslaufen</li>
+      <li>Gesamt: ~5–6 km · kein Gym</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-label">Donnerstag · 19. Juni</div>
+    <div class="day-title">Legs + Core</div>
+    <span class="tag tag-gym">🏋️ Gym</span>
+    <ul class="detail-list">
+      <li>Squat-Variante (Back / Front / Goblet)</li>
+      <li>Romanian Deadlift – Posterior Chain</li>
+      <li>Bulgarian Split Squat</li>
+      <li>Jefferson Curl Progression</li>
+      <li>Abschluss: <span class="highlight">2× Plank + Side Plank</span></li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-label">Freitag · 20. Juni</div>
+    <div class="day-title">Easy Recovery Run</div>
+    <span class="tag tag-run">🏃 Laufen</span>
+    <ul class="detail-list">
+      <li>25–30 min sehr locker</li>
+      <li><span class="highlight">Ziel-HF: 125–135 bpm</span></li>
+      <li>Sprechen muss problemlos möglich sein</li>
+      <li>Pace egal – HF ist der Anker</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-label">Samstag · 21. Juni</div>
+    <div class="day-title">HYROX</div>
+    <span class="tag tag-hyrox">⚡ HYROX</span>
+    <ul class="detail-list">
+      <li>Gym-Kurs eintragen</li>
+      <li>Funktionell + konditionell</li>
+      <li>Kein schweres Krafttraining danach</li>
+      <li>Wattbike danach: <span class="highlight">130–145 bpm, ~130W</span></li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-label">Sonntag · 22. Juni</div>
+    <div class="day-title">Long Run</div>
+    <span class="tag tag-run">🏃 Laufen</span>
+    <ul class="detail-list">
+      <li><span class="highlight">10–12 km</span> – keine Pace-Vorgabe</li>
+      <li>Zone 2: 135–150 bpm durchgehend</li>
+      <li>Ernährung: 1–2h vorher leicht essen</li>
+      <li>Ab 8 km: Wasser mitnehmen</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="brust-box">
+  <div class="icon">⚠️</div>
+  <div>
+    <h3>Brust-Protokoll (Schmerzskala 2)</h3>
+    <p>Nur Press-Bewegungen, keine Flyes. Wöchentlich max. 10% mehr Last/Volumen. Tiefe Flies komplett vermeiden bis Schmerzskala 0.</p>
+  </div>
+</div>
+
+<div class="priority-section">
+  <h2>Wenn die Woche nicht klappt – Prioritäten</h2>
+  <div class="priority-list">
+    <div class="priority-item">
+      <div class="prio-dot prio-green"></div>
+      <span class="prio-label"><strong style="color:#fff">1. Long Run Sonntag</strong> – höchste Longevity-Wirkung, nicht skippen</span>
+    </div>
+    <div class="priority-item">
+      <div class="prio-dot prio-green"></div>
+      <span class="prio-label"><strong style="color:#fff">2. Pull-Einheit</strong> – Rücken stärken, Brust schonen</span>
+    </div>
+    <div class="priority-item">
+      <div class="prio-dot prio-yellow"></div>
+      <span class="prio-label"><strong style="color:#fff">3. Tempo-Run Mittwoch</strong> – wichtig für 5km-Fortschritt</span>
+    </div>
+    <div class="priority-item">
+      <div class="prio-dot prio-yellow"></div>
+      <span class="prio-label"><strong style="color:#fff">4. Legs + Core</strong> – Fundament für alles andere</span>
+    </div>
+    <div class="priority-item">
+      <div class="prio-dot prio-orange"></div>
+      <span class="prio-label"><strong style="color:#fff">5. HYROX</strong> – ersetzbar durch Easy Run</span>
+    </div>
+    <div class="priority-item">
+      <div class="prio-dot prio-red"></div>
+      <span class="prio-label"><strong style="color:#fff">6. Push-Einheit</strong> – niedrigste Priorität solange Brust limitiert</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Erstellt mit Perplexity · <span>KW 25 · 2026</span> · Wöchentlich aktualisiert
+</footer>
+
+</body>
+</html>
