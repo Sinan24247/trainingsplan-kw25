@@ -30,6 +30,18 @@
       background: #fc4c02; color: #fff; font-size: 0.65rem; font-weight: 700;
       padding: 3px 8px; border-radius: 20px; letter-spacing: 0.5px;
     }
+    .day-card.done { opacity: 0.5; }
+    .day-card.done::before {
+      content: '✓ DONE'; position: absolute; top: 14px; right: 14px;
+      background: #4ade80; color: #000; font-size: 0.65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 20px; letter-spacing: 0.5px;
+    }
+    .day-card.rest { border-color: #333; }
+    .day-card.rest::before {
+      content: 'REST'; position: absolute; top: 14px; right: 14px;
+      background: #333; color: #888; font-size: 0.65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 20px; letter-spacing: 0.5px;
+    }
     .day-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
       text-transform: uppercase; color: #666; margin-bottom: 6px; }
     .day-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
@@ -40,6 +52,7 @@
     .tag-run   { background: #1a3a2a; color: #4ade80; }
     .tag-gym   { background: #1a2a3a; color: #60a5fa; }
     .tag-hyrox { background: #2a1a3a; color: #c084fc; }
+    .tag-rest  { background: #222; color: #666; }
     .detail-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .detail-list li {
       display: flex; align-items: flex-start; gap: 8px;
@@ -68,6 +81,21 @@
     .brust-box .icon { font-size: 1.4rem; flex-shrink: 0; }
     .brust-box h3 { font-size: 0.9rem; font-weight: 700; color: #fc4c02; margin-bottom: 6px; }
     .brust-box p { font-size: 0.85rem; color: #bbb; line-height: 1.5; }
+    .interval-box {
+      max-width: 1100px; margin: 0 auto 48px; background: #0f1f0f;
+      border: 1px solid #4ade8050; border-radius: 16px; padding: 20px 24px;
+    }
+    .interval-box h2 { font-size: 1rem; font-weight: 700; color: #4ade80; margin-bottom: 16px; }
+    .interval-steps { display: flex; flex-direction: column; gap: 10px; }
+    .interval-step { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #1a2a1a; border-radius: 10px; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: #4ade8020; color: #4ade80; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-info { flex: 1; }
+    .step-title { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .step-detail { font-size: 0.8rem; color: #888; }
+    .step-badge { font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; flex-shrink: 0; }
+    .badge-hard { background: #fc4c0220; color: #fc4c02; }
+    .badge-easy { background: #4ade8020; color: #4ade80; }
+    .badge-warm { background: #60a5fa20; color: #60a5fa; }
     footer { text-align: center; color: #444; font-size: 0.8rem; max-width: 1100px; margin: 0 auto; }
     footer span { color: #fc4c02; }
   </style>
@@ -76,12 +104,12 @@
 
 <header>
   <h1>Trainingsplan</h1>
-  <p>KW 25 · 16.–22. Juni 2026</p>
+  <p>KW 25 · 16.–22. Juni 2026 · Angepasste Version</p>
 </header>
 
 <div class="week-grid">
 
-  <div class="day-card">
+  <div class="day-card done">
     <div class="day-label">Montag · 16. Juni</div>
     <div class="day-title">Pull + Core</div>
     <span class="tag tag-gym">🏋️ Gym</span>
@@ -95,7 +123,7 @@
     </ul>
   </div>
 
-  <div class="day-card">
+  <div class="day-card done">
     <div class="day-label">Dienstag · 17. Juni</div>
     <div class="day-title">Push (Vorsichtig)</div>
     <span class="tag tag-gym">🏋️ Gym</span>
@@ -108,25 +136,37 @@
     </ul>
   </div>
 
-  <div class="day-card today">
+  <div class="day-card done">
     <div class="day-label">Mittwoch · 18. Juni</div>
-    <div class="day-title">Tempo Run</div>
+    <div class="day-title">4×4 Intervall Run</div>
     <span class="tag tag-run">🏃 Laufen</span>
     <ul class="detail-list">
-      <li>1,5 km Aufwärmen locker</li>
-      <li><span class="highlight">3×1000m ~5:00/km</span></li>
-      <li>90s Pause zwischen Intervallen</li>
-      <li>1 km Auslaufen</li>
-      <li>Gesamt: ~5–6 km · kein Gym</li>
+      <li>10 min Aufwärmen locker</li>
+      <li><span class="highlight">4× 825m @ unter 4:00 min</span></li>
+      <li>3 min Trabpause (~400–500m) zwischen Intervallen</li>
+      <li>5 min Auslaufen</li>
+      <li>Gesamt: ~7 km</li>
     </ul>
   </div>
 
-  <div class="day-card">
+  <div class="day-card rest">
     <div class="day-label">Donnerstag · 19. Juni</div>
+    <div class="day-title">Rest Day</div>
+    <span class="tag tag-rest">😴 Erholung</span>
+    <ul class="detail-list">
+      <li>Erschöpfung nach 3 Tagen in Folge</li>
+      <li>Körper hat richtig entschieden</li>
+      <li>Legs auf Freitag verschoben</li>
+    </ul>
+  </div>
+
+  <div class="day-card today">
+    <div class="day-label">Freitag · 20. Juni</div>
     <div class="day-title">Legs + Core</div>
     <span class="tag tag-gym">🏋️ Gym</span>
     <ul class="detail-list">
-      <li>Squat-Variante (Back / Front / Goblet)</li>
+      <li>Beine seit Mo nicht belastet → <span class="highlight">volle Last heute</span></li>
+      <li>Back Squat / Front Squat</li>
       <li>Romanian Deadlift – Posterior Chain</li>
       <li>Bulgarian Split Squat</li>
       <li>Jefferson Curl Progression</li>
@@ -135,26 +175,14 @@
   </div>
 
   <div class="day-card">
-    <div class="day-label">Freitag · 20. Juni</div>
-    <div class="day-title">Easy Recovery Run</div>
+    <div class="day-label">Samstag · 21. Juni</div>
+    <div class="day-title">Easy Run (bei Eltern)</div>
     <span class="tag tag-run">🏃 Laufen</span>
     <ul class="detail-list">
-      <li>25–30 min sehr locker</li>
+      <li>HYROX entfällt – kein Kurs verfügbar</li>
+      <li>25–30 min sehr locker draußen</li>
       <li><span class="highlight">Ziel-HF: 125–135 bpm</span></li>
-      <li>Sprechen muss problemlos möglich sein</li>
       <li>Pace egal – HF ist der Anker</li>
-    </ul>
-  </div>
-
-  <div class="day-card">
-    <div class="day-label">Samstag · 21. Juni</div>
-    <div class="day-title">HYROX</div>
-    <span class="tag tag-hyrox">⚡ HYROX</span>
-    <ul class="detail-list">
-      <li>Gym-Kurs eintragen</li>
-      <li>Funktionell + konditionell</li>
-      <li>Kein schweres Krafttraining danach</li>
-      <li>Wattbike danach: <span class="highlight">130–145 bpm, ~130W</span></li>
     </ul>
   </div>
 
@@ -172,14 +200,55 @@
 
 </div>
 
+<!-- Intervall Details -->
+<div class="interval-box">
+  <h2>⚡ Intervall-Protokoll (Mittwoch · Norwegian Method)</h2>
+  <div class="interval-steps">
+    <div class="interval-step">
+      <div class="step-num">1</div>
+      <div class="step-info">
+        <div class="step-title">Aufwärmen</div>
+        <div class="step-detail">10 Minuten · Pace egal · einfühlen</div>
+      </div>
+      <span class="step-badge badge-warm">~1,5 km</span>
+    </div>
+    <div class="interval-step">
+      <div class="step-num">2</div>
+      <div class="step-info">
+        <div class="step-title">Intervall 1–4 · je 825m</div>
+        <div class="step-detail">Ziel: unter 4:00 min · HF 172–185 bpm · voll geben</div>
+      </div>
+      <span class="step-badge badge-hard">4:51/km</span>
+    </div>
+    <div class="interval-step">
+      <div class="step-num">3</div>
+      <div class="step-info">
+        <div class="step-title">Pause zwischen Intervallen</div>
+        <div class="step-detail">3 Minuten traben · ~400–500m · HF runter auf ~145 bpm</div>
+      </div>
+      <span class="step-badge badge-easy">6:30/km</span>
+    </div>
+    <div class="interval-step">
+      <div class="step-num">4</div>
+      <div class="step-info">
+        <div class="step-title">Auslaufen</div>
+        <div class="step-detail">5 Minuten · locker · ~0,7 km</div>
+      </div>
+      <span class="step-badge badge-warm">~0,7 km</span>
+    </div>
+  </div>
+</div>
+
+<!-- Brust Hinweis -->
 <div class="brust-box">
   <div class="icon">⚠️</div>
   <div>
     <h3>Brust-Protokoll (Schmerzskala 2)</h3>
-    <p>Nur Press-Bewegungen, keine Flyes. Wöchentlich max. 10% mehr Last/Volumen. Tiefe Flies komplett vermeiden bis Schmerzskala 0.</p>
+    <p>Nur Press-Bewegungen, keine Flyes. Wöchentlich max. 10% mehr Last/Volumen. Tiefe Flies komplett vermeiden bis Schmerzskala 0 erreicht.</p>
   </div>
 </div>
 
+<!-- Prioritätenliste -->
 <div class="priority-section">
   <h2>Wenn die Woche nicht klappt – Prioritäten</h2>
   <div class="priority-list">
@@ -193,7 +262,7 @@
     </div>
     <div class="priority-item">
       <div class="prio-dot prio-yellow"></div>
-      <span class="prio-label"><strong style="color:#fff">3. Tempo-Run Mittwoch</strong> – wichtig für 5km-Fortschritt</span>
+      <span class="prio-label"><strong style="color:#fff">3. Intervall-Run Mittwoch</strong> – wichtig für VO₂max und 5km-Fortschritt</span>
     </div>
     <div class="priority-item">
       <div class="prio-dot prio-yellow"></div>
@@ -201,7 +270,7 @@
     </div>
     <div class="priority-item">
       <div class="prio-dot prio-orange"></div>
-      <span class="prio-label"><strong style="color:#fff">5. HYROX</strong> – ersetzbar durch Easy Run</span>
+      <span class="prio-label"><strong style="color:#fff">5. HYROX</strong> – ersetzbar durch Easy Run wenn Kurs nicht verfügbar</span>
     </div>
     <div class="priority-item">
       <div class="prio-dot prio-red"></div>
